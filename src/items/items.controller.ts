@@ -15,11 +15,11 @@ import { CreateItemDto } from './dto/create-item.dto'
 import { User } from '../entities/user.entity'
 import { Item } from '../entities/item.entity'
 import { ItemsService } from './items.service'
-import { JwtAuthGuard } from 'src/auth/guards/jwt-auth.guard'
-import { GetUser } from 'src/decorator/get-user.decorator'
-import { Role } from 'src/decorator/role.decorator'
-import { UserStatus } from 'src/auth/user-status.enum'
-import { RolesGuard } from 'src/auth/guards/roles.guard'
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard'
+import { GetUser } from '../decorator/get-user.decorator'
+import { Role } from '../decorator/role.decorator'
+import { UserStatus } from '../auth/user-status.enum'
+import { RolesGuard } from '../auth/guards/roles.guard'
 
 @Controller('items')
 // ClassSerializerInterceptor: ハンドラーがレスポンスを返す前にpasswordをExcludeするロジックを追加
