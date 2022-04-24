@@ -10,7 +10,9 @@ import {
   UseGuards,
   UseInterceptors,
   ClassSerializerInterceptor,
+  HttpStatus,
 } from '@nestjs/common'
+import { ApiResponse } from '@nestjs/swagger'
 import { CreateItemDto } from './dto/create-item.dto'
 import { User } from '../entities/user.entity'
 import { Item } from '../entities/item.entity'
@@ -28,11 +30,13 @@ export class ItemsController {
   constructor(private readonly itemsService: ItemsService) {}
 
   @Get()
+  @ApiResponse({ status: HttpStatus.OK, type: Item })
   async findAll(): Promise<Item[]> {
     return await this.itemsService.findAll()
   }
 
   @Get(':id')
+  @ApiResponse({ status: HttpStatus.OK, type: Item })
   async findById(@Param('id', ParseUUIDPipe) id: string): Promise<Item> {
     return await this.itemsService.findById(id)
   }
